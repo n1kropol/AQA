@@ -17,11 +17,23 @@ public class Main2 {
             System.out.println("Success");
         else
             System.out.println("Good bye");
+        int a = 10;
+///////////////////////////test 3//////////////////////////////
+        while(a < 15){
+            System.out.println("a is: "+a);
+            a++;
+        }
+        System.out.println("over loops");
 
-        if()
-            if()
-                if()
-                    System.out.println();
+        a = 10;
+        while(true){
+            System.out.println("a is: "+a);
+            if (a > 15)
+                break;
+            a++;
+        }
+        System.out.println("over loops");
+
 
     }
 }
