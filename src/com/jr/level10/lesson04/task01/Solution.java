@@ -12,9 +12,9 @@ public class Solution
 {
     public static void main(String[] args)
     {
-        byte a = 1234;
+        byte a = (byte)1234;
         int b = a;
-        byte c = a * a;
+        byte c = (byte) (a * a);
         int d = a / c;
     }
 }
