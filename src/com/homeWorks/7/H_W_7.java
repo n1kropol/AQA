@@ -32,7 +32,7 @@ public class H_W_7 {
     @Before
     public void doBefore(){
         System.setProperty("webdriver.chrome.driver",
-                "c:/Users/n1kropol/IdeaProjects/libs/chromedriver.exe");
+                "C:/Documents and Settings/Admin/QA/QASource/QA/chromedriver_win32/chromedriver.exe");
 
         h = new ChromeDriver();
         h.get("http://angel.net/~nic/passwd.current.html");
