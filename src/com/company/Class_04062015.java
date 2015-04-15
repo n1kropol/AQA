@@ -1,4 +1,4 @@
-package com.company;
+//package com.company;
 
 import org.junit.After;
 import org.junit.Before;
@@ -22,7 +22,7 @@ public class Class_04062015 {
 
     public static WebDriver getConnect(){
         System.setProperty("webdriver.chrome.driver",
-                "C:/Documents and Settings/Admin/QA/QASource/QA/chromedriver_win32/chromedriver.exe");
+                "d:/myDocuments/QA/instal/selenium-java/chromedriver.exe");
 
          return new ChromeDriver();
 
