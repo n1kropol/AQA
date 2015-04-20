@@ -32,7 +32,9 @@ public class Class_04152015 {
         //h.get("http://oxogamestudio.com/passwd.current3.htm");
         //h.get("http://oxogamestudio.com/passwd.current4.htm");
         //h.get("http://oxogamestudio.com/passwd.current5.htm");
-        h.get("http://oxogamestudio.com/passwd.current6.htm");
+        //h.get("http://oxogamestudio.com/passwd.current6.htm");
+        h.get("http://oxogamestudio.com/passwd.current7.htm");
+
 
     }
     @Test
@@ -41,6 +43,7 @@ public class Class_04152015 {
         setSite("gmail.com");
         generate();
         String pas = getPassword();
+
         Assert.assertEquals("Test failed!!!", "W3Hdka0clbEI+@1a", pas);
 
     }
@@ -91,8 +94,10 @@ public class Class_04152015 {
     }
     @Test
     public void test7(){
-        List<WebElement> list = new ArrayList<WebElement>(h.findElements(By.tagName("input")));
-        String title = list.get(2).getAttribute("value");
+        //List<WebElement> list = new ArrayList<WebElement>(h.findElements(By.tagName("input")));
+        WebElement td = h.findElement(By.xpath("//input[@value='Generate']"));
+        //String title = list.get(2).getAttribute("value");
+        String title = td.getAttribute("value");
         Assert.assertEquals("Test failed!!!","Generate", title);
     }
     @Test
@@ -100,45 +105,53 @@ public class Class_04152015 {
         setMaster("/';*&#&$@^!_...\\n");
         setSite("/';*&#&$@^!_...\\n");
         generate();
-        Assert.assertEquals("/';*&#&$@^!_...\\n", h.findElement(By.name("master")).getAttribute("value"));
+        //    //td[text()='Site name']/following::input
+        Assert.assertEquals("/';*&#&$@^!_...\\n", h.findElement(By.xpath("//td[text()='Your master password']/following::input")).getAttribute("value"));
     }
     @Test
     public void test9(){
         setMaster("/';*&#&$@^!_...\\n");
         setSite("/';*&#&$@^!_...\\n");
         generate();
-        Assert.assertEquals("Master is not editable",true, h.findElement(By.name("master")).isEnabled());
+        //    //td[text()='Your master password']/following::input
+        Assert.assertEquals("Master is not editable",true, h.findElement(By.xpath("//td[text()='Your master password']/following::input")).isEnabled());
     }
     @Test
     public void test10(){
         setMaster("12345678");
         setSite("gmail.com");
         generate();
-        Assert.assertEquals("Site is not editable",true, h.findElement(By.name("site")).isEnabled());
+        //   //td[text()='Your master password']/following::input
+        Assert.assertEquals("Site is not editable",true, h.findElement(By.xpath("//td[text()='Site name']/following::input")).isEnabled());
     }
     @Test
     public void test11(){
         setMaster("12345678");
         setSite("gmail.com");
         generate();
-        Assert.assertEquals("Password is not editable",true, h.findElement(By.name("password")).isEnabled());
+        Assert.assertEquals("Password is not editable",true, h.findElement(By.xpath("//td[text()='Generated password']/following::input")).isEnabled());
     }
     @Test
     public void test12(){
-        List<WebElement> list = new ArrayList<WebElement>(h.findElements(By.tagName("td")));
-        String title = list.get(0).getText();
+        //List<WebElement> list = new ArrayList<WebElement>(h.findElements(By.tagName("td")));
+        //List<WebElement> list = new ArrayList<WebElement>(h.findElements(By.xpath("td[text()='Your master password']")));
+        WebElement td = h.findElement(By.xpath("//td[text()='Your master password']"));
+        String title = td.getText();
         Assert.assertEquals("Test failed!!!","Your master password", title);
     }
     @Test
     public void test13(){
-        List<WebElement> list = new ArrayList<WebElement>(h.findElements(By.tagName("td")));
-        String title = list.get(2).getText();
+        //List<WebElement> list = new ArrayList<WebElement>(h.findElements(By.xpath("td[text()='Site name']")));
+        WebElement td = h.findElement(By.xpath("//td[text()='Site name']"));
+        String title = td.getText();
         Assert.assertEquals("Test failed!!!","Site name", title);
     }
     @Test
     public void test14(){
-        List<WebElement> list = new ArrayList<WebElement>(h.findElements(By.tagName("td")));
-        String title = list.get(5).getText();
+        //List<WebElement> list = new ArrayList<WebElement>(h.findElements(By.xpath("td[text()='Your master password']")));
+        WebElement td = h.findElement(By.xpath("//td[text()='Generated password']"));
+        String title = td.getText();
+        //String title = list.get(5).getText();
         Assert.assertEquals("Test failed!!!","Generated password", title);
     }
 
@@ -148,24 +161,37 @@ public class Class_04152015 {
     }
 
     public void setMaster(String mast){
-        WebElement master = h.findElement(By.name("master"));
+        //WebElement master = h.findElement(By.name("master"));
+        ////td[text()='Your master password']/following::input
+        WebElement master = h.findElement(By.xpath("//td[text()='Your master password']/following::input"));
         master.clear();
         master.sendKeys(mast);
         //master.sendKeys(Keys.ENTER);
     }
     public void setSite(String siteStr){
-        WebElement site = h.findElement(By.name("site"));
+        //WebElement site = h.findElement(By.name("site"));
+        ////td[text()='Your master password']/following::input[2]
+        WebElement site = h.findElement(By.xpath("//td[text()='Site name']/following::input"));
         site.clear();
         site.sendKeys(siteStr);
        // site.sendKeys(Keys.ENTER);
     }
     public void generate(){
-        List<WebElement> list = new ArrayList<WebElement>(h.findElements(By.tagName("input")));
-        list.get(2).click();
+        //List<WebElement> list = new ArrayList<WebElement>(h.findElements(By.tagName("input")));
+        WebElement button = h.findElement(By.xpath("//input[@value='Generate']"));
+        //list.get(2).click();
+        button.click();
+        //h.findElement(By.xpath("//input[@value='Generate']"));
     }
-    public String getPassword(){
-        String pas = h.findElement(By.name("password")).getAttribute("value");
-        return pas;
+    public String getPassword() {
+        //String pas = h.findElement(By.name("password")).getAttribute("value");
+        String pas = h.findElement(By.xpath("//td[text()='Generated password']/following::input")).getAttribute("value");
+        try {
+            while (h.findElement(By.xpath("//td[text()='Generated password']/following::input")).getAttribute("value").isEmpty()) {
+                Thread.sleep(3000);
+            }
+        } catch(InterruptedException e){}
+        return h.findElement(By.xpath("//td[text()='Generated password']/following::input")).getAttribute("value");
     }
 
 }
