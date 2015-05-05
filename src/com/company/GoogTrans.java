@@ -1,5 +1,4 @@
 package com.company;
-
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -22,20 +21,20 @@ public class GoogTrans {
     public void clean(){
         TestHelper.driver.quit();
     }
-    //1 test just click button translate without data
+    //1  Просто открьіли, нажали Транслейт, проверить что результат пустой.
     @Test
     public void clcButtNoData(){
         POGoogTrans.clcButtTrans();
-        String rezult = POGoogTrans.isEmptyField();
+        String rezult = POGoogTrans.getAreaValue();
         Assert.assertEquals("", rezult);
     }
-    //2 test chech web-site title
+    //2 Проверить что тайтл = Google Translate.
     @Test
     public void checkTitle(){
         String title = TestHelper.driver.getTitle();
         Assert.assertEquals("Переводчик Google", title);
     }
-    //3 test if the right field is empty
+    //3 Проверить наличие левого и правого полей и кнопки Транслейт.
     @Test
     public void checkAllElements(){
         ArrayList<WebElement> list = new ArrayList<WebElement>();
@@ -43,17 +42,72 @@ public class GoogTrans {
         WebElement rightField = TestHelper.driver.findElement(By.xpath("//span[@id='result_box']"));
         WebElement buttTrans = TestHelper.driver.findElement(By.xpath("//input[@id='gt-submit']"));
     }
-    //4 test chech left and right fields and button translate
+    //4 Проверить что в правое поле не добавляется текст.
     @Test
     public void checkRightFieldEmpty(){
         WebElement el = TestHelper.driver.findElement(By.xpath("//span[@id='result_box']"));
     }
-    //5 test chech different language
+    //5 Нажать на стрелочку язьіков проверить наличие Греческого, Мальтийского и Словацкого
     @Test
-    public void checkDiffLanguage(){
+    public void checkDiffLanguages(){
         TestHelper.driver.findElement(By.xpath("//div[@id='gt-sl-gms']")).click();
-        WebElement gr = TestHelper.driver.findElement(By.xpath("//div[text()='греческий']"));
-        WebElement mal = TestHelper.driver.findElement(By.xpath("//div[text()='мальтийский']"));
-        WebElement slov = TestHelper.driver.findElement(By.xpath("//div[text()='словацкий']"));
+        TestHelper.driver.findElement(By.xpath("//div[@id = 'gt-sl-gms-menu']//*[text()='греческий']"));
+        TestHelper.driver.findElement(By.xpath("//div[@id = 'gt-sl-gms-menu']//*[text()='мальтийский']"));
+        TestHelper.driver.findElement(By.xpath("//div[@id = 'gt-sl-gms-menu']//*[text()='словацкий']"));
+    }
+    //6 Ввести Hello в левое поле, нажать Translate проверить наличие кнопки прослушки.
+    @Test
+    public void checkSpeakerButt(){
+        POGoogTrans.setTextArea("Hello");
+        POGoogTrans.clcButtTrans();
+        TestHelper.driver.findElement(By.xpath("//*[@id='gt-res-listen']/span"));
+    }
+    //7. Открьій ссьілку https://translate.google.com/#auto/en/Hello, проверить что слева Hello, справа перевод.
+    @Test
+    public void checkCorrTrans(){
+        TestHelper.driver.get("https://translate.google.com/#auto/en/hello, how are you? I'm fine, thank you.");
+        POGoogTrans.chooseRightLang("русский");
+        POGoogTrans.clcButtTrans();
+        String text = POGoogTrans.getRightFieldVal();
+//        Привет, как ты? Я в порядке, спасибо.   здравствуйте
+        Assert.assertEquals("Привет, как ты? Я в порядке, спасибо.", text);
+    }
+    //8. Слева поставить Spanish, справа English, ввести слева Hello, нажать <>,
+    @Test
+    public void checkCorrSpanish() {
+        POGoogTrans.chooseLeftLang("английский");
+        POGoogTrans.chooseRightLang("испанский");
+        POGoogTrans.setTextArea("Hello");
+        POGoogTrans.clcButtTrans();
+        Assert.assertEquals("¡Hola",POGoogTrans.getRightFieldVal());
+    }
+
+    //    9. Вводим слева Hello, нажимаем X, проверяем что слева и справа пусто.
+    @Test
+    public void clcDeleteButt(){
+        POGoogTrans.setTextArea("Hello");
+        TestHelper.driver.findElement(By.xpath("//div[@id = 'gt-clear']")).click();
+        Assert.assertEquals(POGoogTrans.getAreaValue(), POGoogTrans.getRightFieldVal());
+    }
+    //    10. Вьібираем слева Укр, справа Китайский, вводим слева С У! Г С!, пр перевод.
+    @Test
+    public void checkChinese(){
+        POGoogTrans.chooseLeftLang("украинский");
+        POGoogTrans.chooseRightLang("узбекский");
+        POGoogTrans.setTextArea("Слава Україні!\nГероям Слава!");
+        POGoogTrans.clcButtTrans();
+        Assert.assertEquals("Ukraina Glory!\n" +
+                "Heroes Glory!", POGoogTrans.getRightFieldVal());
+    }
+    // 11.
+    @Test
+    public void checkUkrJava(){
+        TestHelper.driver.get("https://translate.google.ru/#uk/jw/Hello");
+        TestHelper.driver.findElement(By.xpath("//div[text()='украинский' and @aria-pressed='true']"));
+        TestHelper.driver.findElement(By.xpath("//div[text()='яванский' and @aria-pressed='true']"));
+    }
+    //12 Открываем сайт, проверяем быстро доступные кнопки языков слава и справа
+    public void checkQuickLangButtns(){
+
     }
 }
