@@ -15,6 +15,7 @@ public class TestHelper {
         //ChromeOptions options = new ChromeOptions();
         //options.addArguments("--lang=ru");
         //driver = new ChromeDriver(options);
+        driver = new ChromeDriver();
         driver.get("http://angel.net/~nic/passwd.current.html");
         //driver.get("http://oxogamestudio.com/passwd.current2.htm");
         //driver.get("http://oxogamestudio.com/passwd.current3.htm");
