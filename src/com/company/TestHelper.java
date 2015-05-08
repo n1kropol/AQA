@@ -14,7 +14,7 @@ public class TestHelper {
                 "C:/Documents and Settings/Admin/QA/QASource/QA/chromedriver_win32/chromedriver.exe");
         //ChromeOptions options = new ChromeOptions();
         //options.addArguments("--lang=ru");
-        driver = new ChromeDriver(options);
+        //driver = new ChromeDriver(options);
         driver.get("http://angel.net/~nic/passwd.current.html");
         //driver.get("http://oxogamestudio.com/passwd.current2.htm");
         //driver.get("http://oxogamestudio.com/passwd.current3.htm");
