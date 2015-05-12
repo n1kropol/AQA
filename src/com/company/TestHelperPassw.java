@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 /**
  * Created by n1kropol on 29.04.2015.
  */
-public class TestHelper {
+public class TestHelperPassw {
     public static WebDriver driver;
 
     public static void init() {
