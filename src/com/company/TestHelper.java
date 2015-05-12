@@ -1,4 +1,3 @@
-package com.company;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -9,12 +8,11 @@ import org.openqa.selenium.chrome.ChromeOptions;
 public class TestHelper {
     public static WebDriver driver;
 
-    public static void init() {
-//        /usr/local/bin/chromedriver
+/*    public static void init() {
+*//*        System.setProperty("webdriver.chrome.driver",
+                "C:/Documents and Settings/Admin/QA/QASource/QA/chromedriver_win32/chromedriver.exe");*//*
         System.setProperty("webdriver.chrome.driver",
-                "C:/Documents and Settings/Admin/QA/QASource/QA/chromedriver_win32/chromedriver.exe");
-//      System.setProperty("webdriver.chrome.driver",
-//                "/usr/local/bin/chromedriver");
+                "C:/Users/n1kropol/IdeaProjects/libs/chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--lang=ru");
         driver = new ChromeDriver(options);
@@ -29,7 +27,12 @@ public class TestHelper {
         //driver.get("http://oxogamestudio.com/passwd.current7.htm");
         //driver.get("http://oxogamestudio.com/passwd.current8.htm");
         //driver.get("http://oxogamestudio.com/passwd.current9.htm");
-        
         driver.get("https://translate.google.com.ua/");
+    }*/
+    public static void init() {
+//        System.setProperty("webdriver.chrome.driver", "C:/Users/n1kropol/IdeaProjects/libs/chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
+            driver = new ChromeDriver();
+            driver.get("http://angel.net/~nic/passwd.current.html");
     }
 }
