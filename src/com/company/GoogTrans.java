@@ -1,5 +1,3 @@
-
-package com.company;
 import com.google.common.base.Verify;
 import org.junit.After;
 import org.junit.Assert;
@@ -23,7 +21,6 @@ public class GoogTrans {
     public void clean(){
         TestHelper.driver.quit();
     }
-/*
     //1  Просто открьіли, нажали Транслейт, проверить что результат пустой.
     @Test
     public void clcButtNoData(){
@@ -54,20 +51,16 @@ public class GoogTrans {
     @Test
     public void checkDiffLanguages(){
         TestHelper.driver.findElement(By.xpath("//div[@id='gt-sl-gms']")).click();
-        TestHelper.driver.findElement(By.xpath("//div[@id = 'gt-sl-gms-menu']/*/
-/*[text()='греческий']"));
-        TestHelper.driver.findElement(By.xpath("//div[@id = 'gt-sl-gms-menu']/*/
-/*[text()='мальтийский']"));
-        TestHelper.driver.findElement(By.xpath("//div[@id = 'gt-sl-gms-menu']/*/
-/*[text()='словацкий']"));
+        TestHelper.driver.findElement(By.xpath("//div[@id = 'gt-sl-gms-menu']//*[text()='греческий']"));
+        TestHelper.driver.findElement(By.xpath("//div[@id = 'gt-sl-gms-menu']//*[text()='мальтийский']"));
+        TestHelper.driver.findElement(By.xpath("//div[@id = 'gt-sl-gms-menu']//*[text()='словацкий']"));
     }
     //6 Ввести Hello в левое поле, нажать Translate проверить наличие кнопки прослушки.
     @Test
     public void checkSpeakerButt(){
         POGoogTrans.setTextArea("Hello");
         POGoogTrans.clcButtTrans();
-        TestHelper.driver.findElement(By.xpath("/*/
-/*[@id='gt-res-listen']/span"));
+        TestHelper.driver.findElement(By.xpath("//*[@id='gt-res-listen']/span"));
     }
     //7. Открьій ссьілку https://translate.google.com/#auto/en/Hello, проверить что слева Hello, справа перевод.
     @Test
@@ -77,12 +70,6 @@ public class GoogTrans {
         POGoogTrans.clcButtTrans();
         String text = POGoogTrans.getRightFieldVal();
         Assert.assertEquals("здравствуйте", text);
-        TestHelper.driver.get("https://translate.google.com/#auto/en/hello, how are you? I'm fine, thank you.");
-        POGoogTrans.chooseRightLang("русский");
-        POGoogTrans.clcButtTrans();
-        String text1 = POGoogTrans.getRightFieldVal();
-//        Привет, как ты? Я в порядке, спасибо.   здравствуйте
-        Assert.assertEquals("Привет, как ты? Я в порядке, спасибо.", text1);
     }
     //8. Слева поставить Spanish, справа English, ввести слева Hello, нажать <>,
     @Test
@@ -94,24 +81,23 @@ public class GoogTrans {
         Assert.assertEquals("¡Hola",POGoogTrans.getRightFieldVal());
     }
 
-    //    9. Вводим слева Hello, нажимаем X, проверяем что слева и справа пусто.
+//    9. Вводим слева Hello, нажимаем X, проверяем что слева и справа пусто.
     @Test
     public void clcDeleteButt(){
         POGoogTrans.setTextArea("Hello");
         TestHelper.driver.findElement(By.xpath("//div[@id = 'gt-clear']")).click();
         Assert.assertEquals(POGoogTrans.getAreaValue(), POGoogTrans.getRightFieldVal());
+
     }
-    //    10. Вьібираем слева Укр, справа Китайский, вводим слева С У! Г С!, пр перевод.
+//    10. Вьібираем слева Укр, справа Китайский, вводим слева С У! Г С!, пр перевод.
     @Test
     public void checkChinese(){
         POGoogTrans.chooseLeftLang("украинский");
-        POGoogTrans.chooseRightLang("узбекский");
-        POGoogTrans.setTextArea("Слава Україні!\nГероям Слава!");
+        POGoogTrans.chooseRightLang("китайский (традиционный)");
+        POGoogTrans.setTextArea("Слава Україні! Героям Слава!");
         POGoogTrans.clcButtTrans();
-        Assert.assertEquals("Ukraina Glory!\n" +
-                "Heroes Glory!", POGoogTrans.getRightFieldVal());
+        Assert.assertEquals("光榮屬於烏克蘭！光榮屬於英雄！", POGoogTrans.getRightFieldVal());
     }
-*/
 
 // 11. Открьіваем ссьілку https://translate.google.com/#uk/jw/Hello проверяем что слева вьібран Украинский язьік, справа Джаванизский, и что слева и справа "Hello"
     @Test
@@ -128,24 +114,5 @@ public class GoogTrans {
         TestHelper.driver.findElement(By.xpath("//*[@id='gt-sl-sugg']/div"));
         TestHelper.driver.findElement(By.xpath("//*[@id='gt-sl-sugg']/div"));
     }
+
 }
-/*
-
-C:/Documents and Settings/Admin/QA/QASource/QA/selenium-java-2.44.0/selenium-2.44.0*/
-/*
-C:/Documents and Settings/Admin/QA/QASource/QA/selenium-java-2.44.0/selenium-2.44.0/libs*/
-/*
-C:/Documents and Settings/Admin/QA/proj/out/production/QA
-org.junit.runner.JUnitCore
-
-javac -classpath ";C:/Documents and Settings/Admin/QA/QASource/QA/selenium-java-2.44.0/selenium-2.44.0*/
-/*;C:/Documents and Settings/Admin/QA/QASource/QA/selenium-java-2.44.0/selenium-2.44.0/libs*/
-/*;"C:/Documents and Settings/Admin/QA/proj/out/production/QA;" -encoding utf8 -d "C:/Documents and Settings/Admin/QA/proj/out/production/QA" C:/Documents and Settings/Admin/QA/proj/out/production/QA/src/com/company*/
-/*.java
-
-org.junit.runner.JUnitCore com.company.GoogTrans
-
-javac -classpath ";C:/Documents and Settings/Admin/QA/QASource/QA/selenium-java-2.44.0/selenium-2.44.0*/
-/*;C:/Documents and Settings/Admin/QA/QASource/QA/selenium-java-2.44.0/selenium-2.44.0/libs*/
-/*;C:/Documents and Settings/Admin/QA/proj/out/production/QA;" -encoding utf8 -d "C:/Documents and Settings/Admin/QA/proj/out/production/QA" C:/Documents and Settings/Admin/QA/proj/out/production/QA/src/com/company*/
-/*.java"*/

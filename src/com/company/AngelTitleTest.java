@@ -18,7 +18,7 @@ public class AngelTitleTest {
     public static WebDriver h;
     @Before
     public void doBefore(){
-        TestHelper.init();
+        TestHelperPassw.init();
         //h = TestHelper.init();
         //System.setProperty("webdriver.chrome.driver",
         //        "C:/Users/n1kropol/IdeaProjects/libs/chromedriver.exe");
@@ -46,10 +46,10 @@ public class AngelTitleTest {
         POGenPass.generate();
         String pas = POGenPass.getPassword();
         Assert.assertEquals("Test failed!!!", "W3Hdka0clbEI+@1a", pas);*/
-        TestHelper.driver.findElement(By.name("master")).sendKeys("12345678");
-        TestHelper.driver.findElement(By.name("site")).sendKeys("gmail.com");
-        TestHelper.driver.findElement(By.xpath("html/body/form/table/tbody/tr[3]/td/input")).click();
-        Assert.assertEquals("W3Hdka0clbEI+@1a", TestHelper.driver.findElement(By.name("password")).getAttribute("value"));
+        TestHelperPassw.driver.findElement(By.name("master"));
+        TestHelperPassw.driver.findElement(By.name("site"));
+        TestHelperPassw.driver.findElement(By.xpath("html/body/form/table/tbody/tr[3]/td/input")).click();
+        Assert.assertEquals("BaefBs8/Z/cm2@1a", TestHelperPassw.driver.findElement(By.name("password")).getAttribute("value"));
     }
 /*
     //checking password with filling empty master and normal data in fields
@@ -172,7 +172,7 @@ public class AngelTitleTest {
     @After
     public void clean(){
 //        h.quit();
-        TestHelper.driver.quit();
+        TestHelperPassw.driver.quit();
     }
 }
 

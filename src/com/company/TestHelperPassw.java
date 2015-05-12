@@ -1,4 +1,4 @@
-package com.company;
+//package com.company;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -11,9 +11,8 @@ public class TestHelperPassw {
 
     public static void init() {
 //        /usr/local/bin/chromedriver
-      System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
-        ChromeOptions options = new ChromeOptions();
-
+        System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
+//        System.setProperty("webdriver.chrome.driver", "C:/Users/n1kropol/IdeaProjects/libs/chromedriver.exe");
         driver = new ChromeDriver();
         driver.get("http://angel.net/~nic/passwd.current.html");
         //driver.get("http://oxogamestudio.com/passwd.current2.htm");
