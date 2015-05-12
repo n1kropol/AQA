@@ -17,7 +17,7 @@ import java.util.List;
 public class AngelTitleTest {
     @Before
     public void doBefore(){
-        TestHelper.init();
+        TestHelperPassw.init();
     }
     //checking password with filling normal data in fields
     @Test
@@ -148,7 +148,7 @@ public class AngelTitleTest {
 */
     @After
     public void clean(){
-        TestHelper.driver.quit();
+        TestHelperPassw.driver.quit();
     }
 }
 
