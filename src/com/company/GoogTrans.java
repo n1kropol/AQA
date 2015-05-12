@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import com.google.common.base.Verify;
+=======
+package com.company;
+>>>>>>> c3b329a7f66d072f1ae7abd60a35961971f475da
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -65,11 +69,20 @@ public class GoogTrans {
     //7. Открьій ссьілку https://translate.google.com/#auto/en/Hello, проверить что слева Hello, справа перевод.
     @Test
     public void checkCorrTrans(){
+<<<<<<< HEAD
         TestHelper.driver.get("https://translate.google.com/#auto/en/Hello");
         POGoogTrans.chooseRightLang("русский");
         POGoogTrans.clcButtTrans();
         String text = POGoogTrans.getRightFieldVal();
         Assert.assertEquals("здравствуйте", text);
+=======
+        TestHelper.driver.get("https://translate.google.com/#auto/en/hello, how are you? I'm fine, thank you.");
+        POGoogTrans.chooseRightLang("русский");
+        POGoogTrans.clcButtTrans();
+        String text = POGoogTrans.getRightFieldVal();
+//        Привет, как ты? Я в порядке, спасибо.   здравствуйте
+        Assert.assertEquals("Привет, как ты? Я в порядке, спасибо.", text);
+>>>>>>> c3b329a7f66d072f1ae7abd60a35961971f475da
     }
     //8. Слева поставить Spanish, справа English, ввести слева Hello, нажать <>,
     @Test
@@ -79,6 +92,38 @@ public class GoogTrans {
         POGoogTrans.setTextArea("Hello");
         POGoogTrans.clcButtTrans();
         Assert.assertEquals("¡Hola",POGoogTrans.getRightFieldVal());
+<<<<<<< HEAD
+=======
+    }
+
+    //    9. Вводим слева Hello, нажимаем X, проверяем что слева и справа пусто.
+    @Test
+    public void clcDeleteButt(){
+        POGoogTrans.setTextArea("Hello");
+        TestHelper.driver.findElement(By.xpath("//div[@id = 'gt-clear']")).click();
+        Assert.assertEquals(POGoogTrans.getAreaValue(), POGoogTrans.getRightFieldVal());
+    }
+    //    10. Вьібираем слева Укр, справа Китайский, вводим слева С У! Г С!, пр перевод.
+    @Test
+    public void checkChinese(){
+        POGoogTrans.chooseLeftLang("украинский");
+        POGoogTrans.chooseRightLang("узбекский");
+        POGoogTrans.setTextArea("Слава Україні!\nГероям Слава!");
+        POGoogTrans.clcButtTrans();
+        Assert.assertEquals("Ukraina Glory!\n" +
+                "Heroes Glory!", POGoogTrans.getRightFieldVal());
+    }
+    // 11.
+    @Test
+    public void checkUkrJava(){
+        TestHelper.driver.get("https://translate.google.ru/#uk/jw/Hello");
+        TestHelper.driver.findElement(By.xpath("//div[text()='украинский' and @aria-pressed='true']"));
+        TestHelper.driver.findElement(By.xpath("//div[text()='яванский' and @aria-pressed='true']"));
+    }
+    //12 Открываем сайт, проверяем быстро доступные кнопки языков слава и справа
+    public void checkQuickLangButtns(){
+
+>>>>>>> c3b329a7f66d072f1ae7abd60a35961971f475da
     }
 
 //    9. Вводим слева Hello, нажимаем X, проверяем что слева и справа пусто.

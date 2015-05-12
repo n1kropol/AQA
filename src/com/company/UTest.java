@@ -20,7 +20,7 @@ public class UTest {
     public void test2(){
         int a = 10;
         int b =5;
-        int expectedResult = 16;
+        int expectedResult = 15;
         Assert.assertEquals("Test failed!!!",expectedResult, a + b);
         Assert.assertTrue("Test failed!!!", expectedResult == (a + b));
     }

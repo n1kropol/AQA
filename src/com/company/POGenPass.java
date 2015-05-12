@@ -17,12 +17,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class POGenPass {
 
     public static void setMaster(String mast){
-        WebElement master = TestHelper.driver.findElement(By.xpath("//td[text()='Your master password']/following::input"));
+        WebElement master = TestHelper.driver.findElement(By.xpath("//td[text()='Your master password']/following::input[1]"));
         master.clear();
         master.sendKeys(mast);
     }
     public static void setSite(String siteStr){
-        WebElement site = TestHelper.driver.findElement(By.xpath("//td[text()='Site name']/following::input"));
+        WebElement site = TestHelper.driver.findElement(By.xpath("//td[text()='Site name']/following::input[1]"));
         site.clear();
         site.sendKeys(siteStr);
     }
@@ -46,13 +46,13 @@ public class POGenPass {
         }
     }
     public static String getPassword() {
-        String pas = TestHelper.driver.findElement(By.xpath("//td[text()='Generated password']/following::input")).getAttribute("value");
+        String pas = TestHelper.driver.findElement(By.xpath("//td[text()='Generated password']/following::input[1]")).getAttribute("value");
         try {
-            while (TestHelper.driver.findElement(By.xpath("//td[text()='Generated password']/following::input")).getAttribute("value").isEmpty()) {
+            while (TestHelper.driver.findElement(By.xpath("//td[text()='Generated password']/following::input[1]")).getAttribute("value").isEmpty()) {
                 Thread.sleep(3000);
             }
         } catch(InterruptedException e){}
-        return TestHelper.driver.findElement(By.xpath("//td[text()='Generated password']/following::input")).getAttribute("value");
+        return TestHelper.driver.findElement(By.xpath("//td[text()='Generated password']/following::input[1]")).getAttribute("value");
     }
     public static void setField(String label, String val){
         if ("Your master password".equals(label)){
@@ -63,7 +63,7 @@ public class POGenPass {
         }
     }
     public static String getField(String name){
-        WebElement el = TestHelper.driver.findElement(By.xpath("//td[text()='" + name + "']/following::input"));
+        WebElement el = TestHelper.driver.findElement(By.xpath("//td[text()='" + name + "']/following::input[1]"));
         String pas = el.getAttribute("value");
         return pas;
     }

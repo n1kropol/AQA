@@ -28,6 +28,7 @@ public class AngelTitleTest {
         String pas = POGenPass.getPassword();
         Assert.assertEquals("Test failed!!!", "W3Hdka0clbEI+@1a", pas);
     }
+/*
     //checking password with filling empty master and normal data in fields
     @Test
     public void test2(){
@@ -144,6 +145,7 @@ public class AngelTitleTest {
         String pwd = POGenPass.getField("Generated password");
         Assert.assertEquals("W3Hdka0clbEI+@1a", pwd);
     }
+*/
     @After
     public void clean(){
         TestHelper.driver.quit();
