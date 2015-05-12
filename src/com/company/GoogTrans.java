@@ -113,6 +113,7 @@ public class GoogTrans {
     public void checkQuickButtons(){
         TestHelper.driver.findElement(By.xpath("//*[@id='gt-sl-sugg']/div"));
         TestHelper.driver.findElement(By.xpath("//*[@id='gt-sl-sugg']/div"));
+		
     }
 
 }
