@@ -13,7 +13,7 @@ import java.util.List;
  * Created by Admin on 29.04.15.
  */
 public class GoogTrans {
-    /*
+    
     @Before
     public void doBefore(){
         TestHelper.init();
@@ -22,6 +22,7 @@ public class GoogTrans {
     public void clean(){
         TestHelper.driver.quit();
     }
+    /*
     //1  Просто открьіли, нажали Транслейт, проверить что результат пустой.
     @Test
     public void clcButtNoData(){
