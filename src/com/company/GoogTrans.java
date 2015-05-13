@@ -99,7 +99,7 @@ public class GoogTrans {
         POGoogTrans.clcButtTrans();
         Assert.assertEquals("光榮屬於烏克蘭！光榮屬於英雄！", POGoogTrans.getRightFieldVal());
     }
-
+*/
 // 11. Открьіваем ссьілку https://translate.google.com/#uk/jw/Hello проверяем что слева вьібран Украинский язьік, справа Джаванизский, и что слева и справа "Hello"
     @Test
     public void chechUkrJawanHello(){
@@ -115,6 +115,6 @@ public class GoogTrans {
         TestHelper.driver.findElement(By.xpath("//*[@id='gt-sl-sugg']/div"));
         TestHelper.driver.findElement(By.xpath("//*[@id='gt-sl-sugg']/div"));
     }
-    */
+    
 
 }
