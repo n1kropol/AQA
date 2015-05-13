@@ -13,6 +13,7 @@ import java.util.List;
  * Created by Admin on 29.04.15.
  */
 public class GoogTrans {
+    /*
     @Before
     public void doBefore(){
         TestHelper.init();
@@ -114,5 +115,6 @@ public class GoogTrans {
         TestHelper.driver.findElement(By.xpath("//*[@id='gt-sl-sugg']/div"));
         TestHelper.driver.findElement(By.xpath("//*[@id='gt-sl-sugg']/div"));
     }
+    */
 
 }
