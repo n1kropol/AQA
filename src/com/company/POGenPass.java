@@ -15,7 +15,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
  */
 
 public class POGenPass {
-
+/*
     public static void setMaster(String mast){
         WebElement master = TestHelper.driver.findElement(By.xpath("//td[text()='Your master password']/following::input[1]"));
         master.clear();
@@ -67,6 +67,5 @@ public class POGenPass {
         String pas = el.getAttribute("value");
         return pas;
     }
-
-
+*/
 }
