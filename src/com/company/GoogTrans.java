@@ -23,7 +23,7 @@ public class GoogTrans {
     public void clean(){
         TestHelper.driver.quit();
     }
-    /*
+
     //1  Просто открьіли, нажали Транслейт, проверить что результат пустой.
     @Test
     public void clcButtNoData(){
@@ -93,15 +93,15 @@ public class GoogTrans {
 
     }
 //    10. Вьібираем слева Укр, справа Китайский, вводим слева С У! Г С!, пр перевод.
-    @Test
+/*    @Test
     public void checkChinese(){
         POGoogTrans.chooseLeftLang("украинский");
         POGoogTrans.chooseRightLang("китайский (традиционный)");
         POGoogTrans.setTextArea("Слава Україні! Героям Слава!");
         POGoogTrans.clcButtTrans();
         Assert.assertEquals("光榮屬於烏克蘭！光榮屬於英雄！", POGoogTrans.getRightFieldVal());
-    }
-*/
+    }*/
+
 // 11. Открьіваем ссьілку https://translate.google.com/#uk/jw/Hello проверяем что слева вьібран Украинский язьік, справа Джаванизский, и что слева и справа "Hello"
     @Test
     public void chechUkrJawanHello(){
