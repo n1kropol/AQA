@@ -18,6 +18,6 @@ public class TestHelper {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--lang=ru");
         driver = new ChromeDriver(options);
-        driver.get("https://translate.google.com.ru");
+        driver.get("https://translate.google.ru");
     }
 }
