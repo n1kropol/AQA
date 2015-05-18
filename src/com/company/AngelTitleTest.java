@@ -1,3 +1,4 @@
+package com.company;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -18,7 +19,7 @@ public class AngelTitleTest {
     public static WebDriver h;
     @Before
     public void doBefore(){
-        TestHelperPassw.init();
+        //TestHelperPassw.init();
         //h = TestHelper.init();
         //System.setProperty("webdriver.chrome.driver",
         //        "C:/Users/n1kropol/IdeaProjects/libs/chromedriver.exe");
@@ -46,10 +47,10 @@ public class AngelTitleTest {
         POGenPass.generate();
         String pas = POGenPass.getPassword();
         Assert.assertEquals("Test failed!!!", "W3Hdka0clbEI+@1a", pas);*/
-        TestHelperPassw.driver.findElement(By.name("master"));
+/*        TestHelperPassw.driver.findElement(By.name("master"));
         TestHelperPassw.driver.findElement(By.name("site"));
         TestHelperPassw.driver.findElement(By.xpath("html/body/form/table/tbody/tr[3]/td/input")).click();
-        Assert.assertEquals("BaefBs8/Z/cm2@1a", TestHelperPassw.driver.findElement(By.name("password")).getAttribute("value"));
+        Assert.assertEquals("BaefBs8/Z/cm2@1a", TestHelperPassw.driver.findElement(By.name("password")).getAttribute("value"));*/
     }
 /*
     //checking password with filling empty master and normal data in fields
