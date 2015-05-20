@@ -21,14 +21,18 @@ public class UzGovUa {
     }
 
     @Test
-    public void smokeTest() throws InterruptedException {
+    public void smokeTest() {
         POUzGovUa.from("Киев");
         POUzGovUa.to("Ивано-Франковск");
-        POUzGovUa.chooseCalendar("20.06.2015");
+        POUzGovUa.chooseCalendar("Июнь 2015", 20);
         POUzGovUa.clcBut();
-        Thread.sleep(5000);
-//        таблица id=ts_res_tbl
-    }
+        Assert.assertEquals(2,POUzGovUa.checkCountResult());
+        Assert.assertEquals("043 К", POUzGovUa.checkNumTrain("043 К"));
+        Assert.assertEquals("143 К", POUzGovUa.checkNumTrain("143 К"));
+        POUzGovUa.checkTrainRoute("143 К");
+        POUzGovUa.chooseClass("043 К", "Купе", 5, 25);
+        Assert.assertEquals("212,70 грн", POUzGovUa.fillAndCheckTicket("Иванов","Иван", "212,70 грн"));
+}
 
 
 }

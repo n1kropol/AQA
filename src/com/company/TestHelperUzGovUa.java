@@ -11,11 +11,13 @@ public class TestHelperUzGovUa {
     public static WebDriver driver;
 
     public static void init() {
-        System.setProperty("webdriver.chrome.driver",
-                "C:/Documents and Settings/Admin/QA/QASource/QA/chromedriver_win32/chromedriver.exe");
+//        System.setProperty("webdriver.chrome.driver",
+//                "D:/Aquarius/selenium/chromedriver_win32/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--lang=ru");
         driver = new ChromeDriver();
+//        driver.manage().window().maximize();
         driver.get("http://booking.uz.gov.ua/ru");
     }
 }
