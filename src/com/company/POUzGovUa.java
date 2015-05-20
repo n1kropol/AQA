@@ -18,7 +18,7 @@ public class POUzGovUa {
             try {
                 Thread.sleep(1000);
                 count+=1000;
-                if (count > 60000)
+                if (count > 10000)
                     Assert.fail("Waited to long");
                 System.out.println("wait -> " + routeToEl);
                 isPresent = TestHelperUzGovUa.driver.findElements(By.xpath(routeToEl)).size() > 0;
@@ -72,7 +72,16 @@ public class POUzGovUa {
         TestHelperUzGovUa.driver.findElement(By.xpath("//a[@title='закрыть']")).click();
     }
     public static void chooseClass(String train, String type, int coacheNum, int beanch){
-        waitForElem("//a[text()='"+ train +"']/following::div[@title='"+ type +"']/button");
+        Boolean isShadow = TestHelperUzGovUa.driver.findElements(By.xpath("//div[contains(@style, 'background: rgb(204, 229, 251)') and contains(@style, 'visibility: visible')]")).size() > 0;
+        while(isShadow){
+            try {
+                Thread.sleep(1000);
+                isShadow = TestHelperUzGovUa.driver.findElements(By.xpath("//div[contains(@style, 'background: rgb(204, 229, 251)') and contains(@style, 'visibility: visible')]")).size() > 0;
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        waitForElem("//a[text()='" + train + "']/following::div[@title='" + type + "']/button");
         TestHelperUzGovUa.driver.findElement(By.xpath("//a[text()='"+ train +"']/following::div[@title='"+ type +"']/button")).click();
         waitForElem("//div[@class='vToolsPopup coachScheme']");
         TestHelperUzGovUa.driver.findElement(By.xpath("//span[@class='coaches']/a[@href='#"+ coacheNum +"']")).click();

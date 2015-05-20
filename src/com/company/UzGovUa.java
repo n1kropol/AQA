@@ -26,13 +26,13 @@ public class UzGovUa {
         POUzGovUa.to("Ивано-Франковск");
         POUzGovUa.chooseCalendar("Июнь 2015", 20);
         POUzGovUa.clcBut();
-        Assert.assertEquals(2,POUzGovUa.checkCountResult());
+        Assert.assertEquals(2, POUzGovUa.checkCountResult());
         Assert.assertEquals("043 К", POUzGovUa.checkNumTrain("043 К"));
         Assert.assertEquals("143 К", POUzGovUa.checkNumTrain("143 К"));
         POUzGovUa.checkTrainRoute("143 К");
         POUzGovUa.chooseClass("043 К", "Купе", 5, 25);
         Assert.assertEquals("212,70 грн", POUzGovUa.fillAndCheckTicket("Иванов","Иван", "212,70 грн"));
-}
+    }
 
 
 }
