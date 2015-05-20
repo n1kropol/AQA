@@ -18,8 +18,8 @@ public class POUzGovUa {
             try {
                 Thread.sleep(1000);
                 count+=1000;
-                if (count > 10000)
-                    Assert.fail("Waited to long");
+//                if (count > 10000)
+//                    Assert.fail("Waited to long");
 //                System.out.println("wait -> " + routeToEl);
                 isPresent = TestHelperUzGovUa.driver.findElements(By.xpath(routeToEl)).size() > 0;
             } catch (InterruptedException e) {
